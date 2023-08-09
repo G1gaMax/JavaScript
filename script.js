@@ -23,6 +23,6 @@ while (contador < 4){
 }
 
 //se usa la funcion en base a los numeros ingresados y sumados
-const promedio = calcularPromedio(suma);
+const promedio = calcularPromedio(suma).toFixed(1);
 //se imprime en la consola el resultado
 console.log("El promedio es: " + promedio);
