@@ -1,28 +1,93 @@
-//funcion para calcular promedio en base a una suma de 3 numeros
-function calcularPromedio(nota){
-    return nota / 3;
+class agregarTarea {
+    constructor(usuario, tarea, fecha) {
+        this.usuario = usuario;
+        this.tarea = tarea;
+        this.fecha = fecha;
+
+    }
 }
 
-//inicializo contadores
-let contador = 1;
-let suma = 0;
 
+function add() {
 
-//Pregunto por 3 numeros, falla si se ingresa algo que no sea numero o este fuera del rango del 0 al 10.
-while (contador < 4){
-    const entrada = parseFloat(prompt(`Ingrese nota ${contador}:`));
+    usuario = prompt("Ingresa nombre de usuario: ");
+    tarea = prompt("Ingresa descripción de la tarea: ");
+    fecha = prompt("Ingresa fecha de la tarea: ");
+    const descripcion = new agregarTarea(usuario, tarea, fecha);
+    tareas.push(descripcion);
+    alert("Nota agregada");
 
-    if (!isNaN(entrada) && entrada < 10.1) {
-        suma += entrada;
-        contador++;
-    }
-    else{
-        alert("Por favor ingrese solo números y en el rango del 0 al 10")
-    }
-    
 }
 
-//se usa la funcion en base a los numeros ingresados y sumados
-const promedio = calcularPromedio(suma).toFixed(1);
-//se imprime en la consola el resultado
-console.log("El promedio es: " + promedio);
+
+const tareas = [];
+
+function list() {
+
+    while (true) {
+        const filtro = prompt("Menu:\n1.Por usuario \n2.Todos \n3.Menu principal");
+
+        switch (filtro) {
+            case "1":
+                const porUsuario = prompt("Ingrese usuario: ");
+                let foundNote = null;
+                tareas.forEach(function (note) {
+                    if (note.usuario === porUsuario) {
+                        foundNote = note;
+                    }
+                });
+                if (foundNote !== null) {
+                    alert(
+                        "Usuario: " + foundNote.usuario + "\n" +
+                        "Nota: " + foundNote.tarea + "\n" +
+                        "Fecha: " + foundNote.fecha
+                    );
+
+                }
+                else {
+                    alert("Usuario no encontrado");
+                }
+
+                break;
+            case "2":
+                tareas.forEach(all => {
+                    alert(
+                        "Usuario: " + all.usuario + "\n" +
+                        "Nota: " + all.tarea + "\n" +
+                        "Fecha: " + all.fecha);
+                });
+
+
+                break;
+
+            case "3":
+                return;
+        }
+    }
+
+}
+
+
+function menu() {
+    let opcion;
+    while (opcion !== "3") {
+        const tareas = [];
+        opcion = prompt("Menu:\n1.Agregar tarea \n2.Listar tareas \n3.Salir");
+
+        switch (opcion) {
+            case "1":
+                add()
+                break;
+            case "2":
+                list()
+                break;
+            case "3":
+                console.log("Saliendo...");
+                break;
+            default:
+                alert("Opcion incorrecta.")
+        }
+    }
+}
+
+menu()
