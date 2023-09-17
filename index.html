@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>==Notas==</title>
 </head>
+
 <body>
+
+
+    <div class="main-container">
+
+        <div class="sub-container-right-add">
+
+            <div id="inputDiv">
+
+                <input type="text" class="inputs" id="username" placeholder="Username">
+                <textarea id="text" class="inputsText" rows="5" maxlength="100" placeholder="Text"></textarea>
+                <input type="date" class="inputs" id="date">
+                <button id="storeButton" class="inputsButton">Submit</button>
+
+            </div>
+        </div>
+
+        <div class="filterContainer">
+            <input id="filterInput" class="filter" type="text" placeholder="Search by name">
+            <button id="filterButton" class="filter">Filter</button>
+            <button id="clearFilterButton" class="filter">Clear</button>
+        </div>
+
+        <div id="notesDiv">
+
+        </div>
+
     
+
+
+    </div>
+
 </body>
+
 </html>
